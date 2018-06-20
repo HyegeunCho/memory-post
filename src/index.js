@@ -17,8 +17,18 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// Configure FirebaseUI
-ReactDOM.render(<SignInScreen/>, document.getElementById('root'));
+var db;
+firebase.firestore().enablePersistence()
+.then(function() {
+    db = firebase.firestore();
+})
+.catch(function(err) {
+    console.log(`[Firestore] Cannot use persistence mode: ${err.code}`);
+    db = firebase.firestore();
+})
+.finally(function() {
+    ReactDOM.render(<SignInScreen/>, document.getElementById('root'));
+    registerServiceWorker();
+});
 
-//ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+

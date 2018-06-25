@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Root from './client/Root';
 import registerServiceWorker from './registerServiceWorker';
 import firebase from 'firebase';
 
@@ -27,7 +28,7 @@ firebase.firestore().enablePersistence()
     db = firebase.firestore();
 })
 .finally(function() {
-    ReactDOM.render(<SignInScreen/>, document.getElementById('root'));
+    ReactDOM.render(<Root/>, document.getElementById('root'));
     registerServiceWorker();
 });
 

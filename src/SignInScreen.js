@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import React, {Component} from 'react';
+import React from 'react';
 
 export default class SignInScreen extends React.Component {
     constructor(props) {
@@ -15,7 +15,7 @@ export default class SignInScreen extends React.Component {
             signInFlow: 'popup',
             // Redirect to /signedIn after sign in is successful.
             // Alternatively you can provide a callbacks.signInSuccess function
-            signInSuccessUrl: '/post', 
+            signInSuccessUrl: '/notes', 
             // We will display Google and Facebook as auth proviers.
             signInOptions: [
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID, 

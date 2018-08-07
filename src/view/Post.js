@@ -26,6 +26,7 @@ export default class Post extends Component {
     onPrevious(e) {
         this.setState(function(prevState) {
             return {
+                isFront: true, 
                 index: (prevState.index === 0 ? 0 : prevState.index - 1)
             };
         });
@@ -35,6 +36,7 @@ export default class Post extends Component {
     onNext(e) {
         this.setState(function(prevState) {
             return {
+                isFront: true, 
                 index: (prevState.index === this.data.length - 1 ? prevState.index : prevState.index + 1)
             };
         });

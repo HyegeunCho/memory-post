@@ -1,5 +1,6 @@
 import React from 'react';
 import './NoteList.css';
+import {Link} from 'react-router-dom';
 
 export default class NoteList extends React.Component {
     constructor(props) {
@@ -10,12 +11,7 @@ export default class NoteList extends React.Component {
             isShared: false
         };
 
-        var secondNote = {
-            name: 'Second Note Second Note Second Note Second Note Second Note Second Note Second Note ', 
-            isShared: false
-        }
-
-        this.noteList = [defaultNote, secondNote];
+        this.noteList = [defaultNote];
         if (this.props.noteList) {
             this.noteList = this.noteList.concat(this.props.noteList);
         }
@@ -47,11 +43,13 @@ export class NoteListItem extends React.Component {
         var isShared = this.props.isShared;
 
         return (
-            <div className='NoteItem'>
-                <div className='NoteItem-index'>{index}</div>
-                <div className='NoteItem-name'>{name}</div>
-                <div className='NoteItem-delete'>delete</div>
-            </div>
+            <Link to='/post'>
+                <div className='NoteItem'>
+                    <div className='NoteItem-index'>{index}</div>
+                    <div className='NoteItem-name'>{name}</div>
+                    <div className='NoteItem-delete'>delete</div>
+                </div>
+            </Link>
         );
     }
 }

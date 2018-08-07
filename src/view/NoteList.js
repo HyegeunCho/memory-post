@@ -24,7 +24,7 @@ export default class NoteList extends React.Component {
     render() {
         var list = this.noteList.map(function(val, index, origin) {
             return (
-                <NoteListItem index={index} name={val.name} isShared={val.isShared} key={`NoteItem-${index}`}/>
+                <NoteListItem index={index + 1} name={val.name} isShared={val.isShared} key={`NoteItem-${index}`}/>
             );
         });
 

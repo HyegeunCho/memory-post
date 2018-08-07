@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import './Post.css';
+import DATA_POST from '../resource/MockData';
 
-export default class Post extends React.Component {
+export default class Post extends Component {
     constructor(props) {
         super(props);
+        this.data = DATA_POST;
         this.onFlip = this.onFlip.bind(this);
         this.onPrevious = this.onPrevious.bind(this);
         this.onNext = this.onNext.bind(this);
         this.state = {
-            isFront: true
+            isFront: true, 
+            index: 0
         };
     }
 
@@ -21,27 +24,39 @@ export default class Post extends React.Component {
     }
 
     onPrevious(e) {
-        this.props.onPrevious(e);
+        this.setState(function(prevState) {
+            return {
+                index: (prevState.index === 0 ? 0 : prevState.index - 1)
+            };
+        });
+        // this.props.onPrevious(e);
     }
 
     onNext(e) {
-        this.props.onNext(e);
+        this.setState(function(prevState) {
+            return {
+                index: (prevState.index === this.data.length - 1 ? prevState.index : prevState.index + 1)
+            };
+        });
+        // this.props.onNext(e);
     }
 
     onIncreaseWeight(e) {
-        this.props.onChangeWeight(1);
+        // this.props.onChangeWeight(1);
     }
 
     onDecreaseWeight(e) {
-        this.props.onChangeWeight(-1);
+        // this.props.onChangeWeight(-1);
     }
 
     render() {
         var index = this.props.index;
         var frontType = this.props.frontType;
-        var frontData = this.props.frontData;
+        // var frontData = this.props.frontData;
+        var frontData = this.data[this.state.index].front;
         var backType = this.props.backType;
-        var backData = this.props.backData;
+        // var backData = this.props.backData;
+        var backData = this.data[this.state.index].back;
         var weight = this.props.weight;
         return (
             <div className='Post-container'>

@@ -1,5 +1,5 @@
-export default const DATA_POST = [
-    {id: 1, frontType: 1, front: 'daunt', backType: 1, back: '위협하다,기를 죽이다', weight: 0}, 
+const DATA_POST = [
+	{id: 1, frontType: 1, front: 'daunt', backType: 1, back: '위협하다,기를 죽이다', weight: 0}, 
 	{id: 2, frontType: 1, front: 'notorious', backType: 1, back: '악명높은', weight: 0}, 
 	{id: 3, frontType: 1, front: 'moody', backType: 1, back: '우울한,기분변화가심한', weight: 0}, 
 	{id: 4, frontType: 1, front: 'eradicate', backType: 1, back: '뿌리뽑다, 근절하다', weight: 0}, 
@@ -15,3 +15,4 @@ export default const DATA_POST = [
 	{id: 14, frontType: 1, front: 'eccentric', backType: 1, back: '이상한, 정도를 벗어난', weight: 0}, 
 	{id: 15, frontType: 1, front: 'blur', backType: 1, back: '희미해지다, 흐리게 하다, 희미한 것', weight: 0}, 
 ];
+export default DATA_POST;
